@@ -19,6 +19,7 @@ table {
   overflow-y: auto;
 }
 
+
 th, td {
   border: 2px solid #415a77;
   padding: 8px;
@@ -31,6 +32,7 @@ th {
 tr.selected {
   background-color: #14263c;
 }
+
 
 button {
   margin-top: 10px;
@@ -92,4 +94,5 @@ form div {
 .detail p {
   margin: 4px 0;
 }
+
 

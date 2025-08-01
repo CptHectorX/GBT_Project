@@ -13,6 +13,7 @@ const detailPriority = document.getElementById('detailPriority');
 const detailAssignee = document.getElementById('detailAssignee');
 let selectedRow = null;
 
+
 function addRow(ticket) {
   const row = document.createElement('tr');
   row.innerHTML =
@@ -26,6 +27,7 @@ function addRow(ticket) {
     selectedRow = row;
     showDetails(ticket);
   });
+
   tableBody.appendChild(row);
 }
 
@@ -54,6 +56,7 @@ function showDetails(ticket) {
   detailPanel.classList.remove('hidden');
 }
 
+
 function refreshTable() {
   tableBody.innerHTML = '';
   loadTickets().forEach(addRow);
@@ -69,6 +72,7 @@ cancelBtn.addEventListener('click', () => {
 });
 
 form.addEventListener('submit', function (event) {
+
   event.preventDefault();
   const ticket = {
     ticketnummer: document.getElementById('ticketnummer').value,
@@ -78,6 +82,7 @@ form.addEventListener('submit', function (event) {
     duedate: document.getElementById('duedate').value,
     priority: document.getElementById('priority').value,
     assignee: document.getElementById('assignee').value,
+
   };
 
   const tickets = loadTickets();
