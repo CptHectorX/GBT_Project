@@ -43,6 +43,7 @@ cancelBtn.addEventListener('click', () => {
 });
 
 form.addEventListener('submit', function (event) {
+
   event.preventDefault();
   const ticket = {
     ticketnummer: document.getElementById('ticketnummer').value,
@@ -62,3 +63,4 @@ form.addEventListener('submit', function (event) {
 });
 
 window.addEventListener('DOMContentLoaded', refreshTable);
+
