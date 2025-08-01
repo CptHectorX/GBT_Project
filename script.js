@@ -37,6 +37,7 @@ cancelBtn.addEventListener('click', () => {
 });
 
 form.addEventListener('submit', async function (event) {
+
   event.preventDefault();
   const ticket = {
     ticketnummer: document.getElementById('ticketnummer').value,
