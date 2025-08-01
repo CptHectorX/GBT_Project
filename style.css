@@ -55,7 +55,7 @@ input, select, textarea {
 form div {
   display: flex;
   flex-direction: column;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .modal {
@@ -92,7 +92,7 @@ form div {
 }
 
 .detail p {
-  margin: 4px 0;
+  margin: 8px 0;
 }
 
 
