@@ -3,12 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Ticketsystem</title>
-  <style>
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ddd; padding: 8px; }
-    th { background-color: #f2f2f2; }
-    form div { margin-bottom: 8px; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Ticketsystem</h1>
@@ -46,27 +41,6 @@
     <button type="submit">Hinzufügen</button>
   </form>
 
-  <script>
-    document.getElementById('ticketForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      var tableBody = document.getElementById('ticketTable').querySelector('tbody');
-
-      var row = document.createElement('tr');
-
-      var ticketnummer = document.getElementById('ticketnummer').value;
-      var kurztext = document.getElementById('kurztext').value;
-      var beschreibung = document.getElementById('beschreibung').value;
-      var status = document.getElementById('status').value;
-
-      row.innerHTML = '<td>' + ticketnummer + '</td>' +
-                      '<td>' + kurztext + '</td>' +
-                      '<td>' + beschreibung + '</td>' +
-                      '<td>' + status + '</td>';
-
-      tableBody.appendChild(row);
-
-      this.reset();
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
