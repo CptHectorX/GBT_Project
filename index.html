@@ -20,26 +20,33 @@
     </tbody>
   </table>
 
-  <h2>Neues Ticket hinzufügen</h2>
-  <form id="ticketForm">
-    <div>
-      <label for="ticketnummer">Ticketnummer:</label>
-      <input type="text" id="ticketnummer" required>
+  <button id="openFormBtn">Ticket erstellen</button>
+
+  <div id="formModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Neues Ticket</h2>
+      <form id="ticketForm">
+        <div>
+          <label for="ticketnummer">Ticketnummer:</label>
+          <input type="text" id="ticketnummer" required>
+        </div>
+        <div>
+          <label for="kurztext">Kurztext:</label>
+          <input type="text" id="kurztext" required>
+        </div>
+        <div>
+          <label for="beschreibung">Beschreibung:</label>
+          <textarea id="beschreibung" required></textarea>
+        </div>
+        <div>
+          <label for="status">Status:</label>
+          <input type="text" id="status" required>
+        </div>
+        <button type="submit">Hinzufügen</button>
+        <button type="button" id="cancelBtn">Abbrechen</button>
+      </form>
     </div>
-    <div>
-      <label for="kurztext">Kurztext:</label>
-      <input type="text" id="kurztext" required>
-    </div>
-    <div>
-      <label for="beschreibung">Beschreibung:</label>
-      <textarea id="beschreibung" required></textarea>
-    </div>
-    <div>
-      <label for="status">Status:</label>
-      <input type="text" id="status" required>
-    </div>
-    <button type="submit">Hinzufügen</button>
-  </form>
+  </div>
 
   <script src="script.js"></script>
 </body>

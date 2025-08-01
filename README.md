@@ -1,6 +1,6 @@
 # Ticket System
 
-This repository holds a single HTML page for simple ticket management. The page displays existing tickets in a table and provides a form to add new ones.
+This repository holds a single HTML page for simple ticket management. The page displays existing tickets in a table and provides a button that opens a form in a popup to add new ones.
 
 ## Opening the page
 
