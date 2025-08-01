@@ -1,0 +1,75 @@
+body {
+  font-family: 'Press Start 2P', "Courier New", monospace;
+  background-color: #0d1b2a;
+  color: #f8f9fa;
+  margin: 0;
+  padding: 20px;
+  image-rendering: pixelated;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #1b263b;
+  color: #f8f9fa;
+}
+
+th, td {
+  border: 2px solid #415a77;
+  padding: 8px;
+}
+
+th {
+  background-color: #0d3b66;
+}
+
+button {
+  margin-top: 10px;
+  font-family: inherit;
+  background-color: #1b263b;
+  color: #f8f9fa;
+  border: 2px solid #415a77;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  background-color: #0d1b2a;
+  color: #f8f9fa;
+  border: 2px solid #415a77;
+  padding: 4px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #001b33;
+  padding: 20px;
+  border: 2px solid #415a77;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content input, .modal-content select, .modal-content textarea {
+  width: 100%;
+}
+
