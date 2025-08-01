@@ -3,70 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <title>Ticketsystem</title>
-  <style>
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ddd; padding: 8px; }
-    th { background-color: #f2f2f2; }
-    form div { margin-bottom: 8px; }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Ticketsystem</h1>
-  <table id="ticketTable">
-    <thead>
-      <tr>
-        <th>Ticketnummer</th>
-        <th>Kurztext</th>
-        <th>Beschreibung</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
+  <div id="tableContainer" class="table-container">
+    <table id="ticketTable">
+      <thead>
+        <tr>
+          <th>Ticketnummer</th>
+          <th>Kurztext</th>
+          <th>Beschreibung</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>Neues Ticket hinzufügen</h2>
-  <form id="ticketForm">
-    <div>
-      <label for="ticketnummer">Ticketnummer:</label>
-      <input type="text" id="ticketnummer" required>
+  <button id="openFormBtn">Ticket erstellen</button>
+
+  <div id="formModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Neues Ticket</h2>
+      <form id="ticketForm">
+        <div>
+          <label for="ticketnummer">Ticketnummer:</label>
+          <input type="text" id="ticketnummer" required>
+        </div>
+        <div>
+          <label for="kurztext">Kurztext:</label>
+          <input type="text" id="kurztext" required>
+        </div>
+        <div>
+          <label for="beschreibung">Beschreibung:</label>
+          <textarea id="beschreibung" rows="5" required></textarea>
+        </div>
+        <div>
+          <label for="status">Status:</label>
+          <select id="status">
+            <option value="OPEN">OPEN</option>
+            <option value="IN PROGRESS">IN PROGRESS</option>
+            <option value="SOLVED">SOLVED</option>
+          </select>
+        </div>
+        <div>
+          <label for="duedate">Fällig am:</label>
+          <input type="date" id="duedate" required>
+        </div>
+        <div>
+          <label for="priority">Priorität:</label>
+          <select id="priority">
+            <option value="low">low</option>
+            <option value="normal" selected>normal</option>
+            <option value="high">high</option>
+          </select>
+        </div>
+        <div>
+          <label for="assignee">Bearbeiter:</label>
+          <input type="text" id="assignee" required>
+        </div>
+        <button type="submit">Hinzufügen</button>
+        <button type="button" id="cancelBtn">Abbrechen</button>
+      </form>
     </div>
-    <div>
-      <label for="kurztext">Kurztext:</label>
-      <input type="text" id="kurztext" required>
-    </div>
-    <div>
-      <label for="beschreibung">Beschreibung:</label>
-      <textarea id="beschreibung" required></textarea>
-    </div>
-    <div>
-      <label for="status">Status:</label>
-      <input type="text" id="status" required>
-    </div>
-    <button type="submit">Hinzufügen</button>
-  </form>
+  </div>
 
-  <script>
-    document.getElementById('ticketForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      var tableBody = document.getElementById('ticketTable').querySelector('tbody');
+  <div id="detailPanel" class="detail hidden">
+    <h2>Ticket Details</h2>
+    <p><strong>Ticketnummer:</strong> <span id="detailNummer"></span></p>
+    <p><strong>Kurztext:</strong> <span id="detailKurztext"></span></p>
+    <p><strong>Beschreibung:</strong> <span id="detailBeschreibung"></span></p>
+    <p><strong>Status:</strong> <span id="detailStatus"></span></p>
+    <p><strong>Fällig am:</strong> <span id="detailDuedate"></span></p>
+    <p><strong>Priorität:</strong> <span id="detailPriority"></span></p>
+    <p><strong>Bearbeiter:</strong> <span id="detailAssignee"></span></p>
+  </div>
 
-      var row = document.createElement('tr');
-
-      var ticketnummer = document.getElementById('ticketnummer').value;
-      var kurztext = document.getElementById('kurztext').value;
-      var beschreibung = document.getElementById('beschreibung').value;
-      var status = document.getElementById('status').value;
-
-      row.innerHTML = '<td>' + ticketnummer + '</td>' +
-                      '<td>' + kurztext + '</td>' +
-                      '<td>' + beschreibung + '</td>' +
-                      '<td>' + status + '</td>';
-
-      tableBody.appendChild(row);
-
-      this.reset();
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
