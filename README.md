@@ -15,3 +15,7 @@ npm start
 ```
 
 The page will be available at [http://localhost:3000](http://localhost:3000).
+
+Ticket creation relies on this server. Submitted entries are stored in
+`tickets.json` on the server side. If you open `index.html` directly from the
+filesystem without the server running, tickets will not persist.

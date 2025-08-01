@@ -65,12 +65,10 @@ form div {
   border: 2px solid #415a77;
 }
 
-.modal-content input,
-.modal-content select,
-.modal-content textarea {
-  width: 100%;
-}
-
 .hidden {
   display: none;
+}
+
+.modal-content input, .modal-content select, .modal-content textarea {
+  width: 100%;
 }

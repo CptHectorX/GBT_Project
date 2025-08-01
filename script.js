@@ -36,28 +36,32 @@ cancelBtn.addEventListener('click', () => {
   form.reset();
 });
 
-form.addEventListener('submit', async function(event) {
+form.addEventListener('submit', async function (event) {
+
   event.preventDefault();
   const ticket = {
     ticketnummer: document.getElementById('ticketnummer').value,
     kurztext: document.getElementById('kurztext').value,
     beschreibung: document.getElementById('beschreibung').value,
-    status: document.getElementById('status').value
+    status: document.getElementById('status').value,
   };
+
+  // Immediately add row so the interface feels responsive
+  addRow(ticket);
+  form.reset();
+  modal.classList.add('hidden');
 
   try {
     const res = await fetch('tickets', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(ticket)
+      body: JSON.stringify(ticket),
     });
-    if (res.ok) {
-      addRow(ticket);
-      form.reset();
-      modal.classList.add('hidden');
+    if (!res.ok) {
+      console.error('Server responded with', res.status);
     }
   } catch (err) {
-    console.error(err);
+    console.error('Ticket could not be saved:', err);
   }
 });
 
