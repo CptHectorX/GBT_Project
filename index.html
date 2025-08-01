@@ -3,12 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Ticketsystem</title>
-  <style>
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ddd; padding: 8px; }
-    th { background-color: #f2f2f2; }
-    form div { margin-bottom: 8px; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Ticketsystem</h1>
@@ -25,48 +20,38 @@
     </tbody>
   </table>
 
-  <h2>Neues Ticket hinzufügen</h2>
-  <form id="ticketForm">
-    <div>
-      <label for="ticketnummer">Ticketnummer:</label>
-      <input type="text" id="ticketnummer" required>
+  <button id="openFormBtn">Ticket erstellen</button>
+
+  <div id="formModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Neues Ticket</h2>
+      <form id="ticketForm">
+        <div>
+          <label for="ticketnummer">Ticketnummer:</label>
+          <input type="text" id="ticketnummer" required>
+        </div>
+        <div>
+          <label for="kurztext">Kurztext:</label>
+          <input type="text" id="kurztext" required>
+        </div>
+        <div>
+          <label for="beschreibung">Beschreibung:</label>
+          <textarea id="beschreibung" rows="5" required></textarea>
+        </div>
+        <div>
+          <label for="status">Status:</label>
+          <select id="status">
+            <option value="OPEN">OPEN</option>
+            <option value="IN PROGRESS">IN PROGRESS</option>
+            <option value="SOLVED">SOLVED</option>
+          </select>
+        </div>
+        <button type="submit">Hinzufügen</button>
+        <button type="button" id="cancelBtn">Abbrechen</button>
+      </form>
     </div>
-    <div>
-      <label for="kurztext">Kurztext:</label>
-      <input type="text" id="kurztext" required>
-    </div>
-    <div>
-      <label for="beschreibung">Beschreibung:</label>
-      <textarea id="beschreibung" required></textarea>
-    </div>
-    <div>
-      <label for="status">Status:</label>
-      <input type="text" id="status" required>
-    </div>
-    <button type="submit">Hinzufügen</button>
-  </form>
+  </div>
 
-  <script>
-    document.getElementById('ticketForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      var tableBody = document.getElementById('ticketTable').querySelector('tbody');
-
-      var row = document.createElement('tr');
-
-      var ticketnummer = document.getElementById('ticketnummer').value;
-      var kurztext = document.getElementById('kurztext').value;
-      var beschreibung = document.getElementById('beschreibung').value;
-      var status = document.getElementById('status').value;
-
-      row.innerHTML = '<td>' + ticketnummer + '</td>' +
-                      '<td>' + kurztext + '</td>' +
-                      '<td>' + beschreibung + '</td>' +
-                      '<td>' + status + '</td>';
-
-      tableBody.appendChild(row);
-
-      this.reset();
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
