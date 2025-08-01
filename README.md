@@ -6,16 +6,17 @@ This repository holds a single HTML page for simple ticket management. The page 
 
 Open `index.html` in any modern web browser. Double-click the file or choose **File → Open** from your browser menu and select `index.html`.
 
-## Running the server
+## Saving tickets
 
-Install dependencies with `npm install` and then start the server:
+Tickets entered in the popup are stored locally in your browser using
+`localStorage`. Simply open `index.html` and any added tickets will remain the
+next time you reload the page on the same browser.
+
+You can still run the included Node server if you prefer to serve the files over
+`http://localhost:3000`:
 
 ```bash
 npm start
 ```
 
-The page will be available at [http://localhost:3000](http://localhost:3000).
-
-Ticket creation relies on this server. Submitted entries are stored in
-`tickets.json` on the server side. If you open `index.html` directly from the
-filesystem without the server running, tickets will not persist.
+But it is no longer required for saving tickets.

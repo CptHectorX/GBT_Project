@@ -14,17 +14,23 @@ function addRow(ticket) {
   tableBody.appendChild(row);
 }
 
-async function fetchTickets() {
+function loadTickets() {
+  const data = localStorage.getItem('tickets');
   try {
-    const res = await fetch('tickets');
-    if (res.ok) {
-      const tickets = await res.json();
-      tableBody.innerHTML = '';
-      tickets.forEach(addRow);
-    }
+    return data ? JSON.parse(data) : [];
   } catch (err) {
-    console.error(err);
+    console.error('Could not parse saved tickets:', err);
+    return [];
   }
+}
+
+function saveTickets(tickets) {
+  localStorage.setItem('tickets', JSON.stringify(tickets));
+}
+
+function refreshTable() {
+  tableBody.innerHTML = '';
+  loadTickets().forEach(addRow);
 }
 
 openBtn.addEventListener('click', () => {
@@ -36,7 +42,7 @@ cancelBtn.addEventListener('click', () => {
   form.reset();
 });
 
-form.addEventListener('submit', async function (event) {
+form.addEventListener('submit', function (event) {
 
   event.preventDefault();
   const ticket = {
@@ -46,23 +52,15 @@ form.addEventListener('submit', async function (event) {
     status: document.getElementById('status').value,
   };
 
+  const tickets = loadTickets();
+  tickets.push(ticket);
+  saveTickets(tickets);
+
   // Immediately add row so the interface feels responsive
   addRow(ticket);
   form.reset();
   modal.classList.add('hidden');
-
-  try {
-    const res = await fetch('tickets', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(ticket),
-    });
-    if (!res.ok) {
-      console.error('Server responded with', res.status);
-    }
-  } catch (err) {
-    console.error('Ticket could not be saved:', err);
-  }
 });
 
-window.addEventListener('DOMContentLoaded', fetchTickets);
+window.addEventListener('DOMContentLoaded', refreshTable);
+
