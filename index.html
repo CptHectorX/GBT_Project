@@ -8,19 +8,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Ticketsystem</h1>
+  <h1>Ticketsystem</h1>
+  <div id="tableContainer" class="table-container">
     <table id="ticketTable">
-        <thead>
-            <tr>
-                <th>Ticketnummer</th>
-                <th>Kurztext</th>
-                <th>Beschreibung</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
+      <thead>
+        <tr>
+          <th>Ticketnummer</th>
+          <th>Kurztext</th>
+          <th>Beschreibung</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
     </table>
+  </div>
 
   <button id="openFormBtn">Ticket erstellen</button>
 
@@ -48,10 +50,36 @@
             <option value="SOLVED">SOLVED</option>
           </select>
         </div>
+        <div>
+          <label for="duedate">Fällig am:</label>
+          <input type="date" id="duedate" required>
+        </div>
+        <div>
+          <label for="priority">Priorität:</label>
+          <select id="priority">
+            <option value="low">low</option>
+            <option value="normal" selected>normal</option>
+            <option value="high">high</option>
+          </select>
+        </div>
+        <div>
+          <label for="assignee">Bearbeiter:</label>
+          <input type="text" id="assignee" required>
+        </div>
         <button type="submit">Hinzufügen</button>
         <button type="button" id="cancelBtn">Abbrechen</button>
       </form>
     </div>
+  </div>
+  <div id="detailPanel" class="detail hidden">
+    <h2>Ticket Details</h2>
+    <p><strong>Ticketnummer:</strong> <span id="detailNummer"></span></p>
+    <p><strong>Kurztext:</strong> <span id="detailKurztext"></span></p>
+    <p><strong>Beschreibung:</strong> <span id="detailBeschreibung"></span></p>
+    <p><strong>Status:</strong> <span id="detailStatus"></span></p>
+    <p><strong>Fällig am:</strong> <span id="detailDuedate"></span></p>
+    <p><strong>Priorität:</strong> <span id="detailPriority"></span></p>
+    <p><strong>Bearbeiter:</strong> <span id="detailAssignee"></span></p>
   </div>
   <script src="script.js"></script>
 </body>

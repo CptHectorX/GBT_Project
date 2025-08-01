@@ -3,6 +3,16 @@ const modal = document.getElementById('formModal');
 const form = document.getElementById('ticketForm');
 const cancelBtn = document.getElementById('cancelBtn');
 const tableBody = document.getElementById('ticketTable').querySelector('tbody');
+const detailPanel = document.getElementById('detailPanel');
+const detailNummer = document.getElementById('detailNummer');
+const detailKurztext = document.getElementById('detailKurztext');
+const detailBeschreibung = document.getElementById('detailBeschreibung');
+const detailStatus = document.getElementById('detailStatus');
+const detailDuedate = document.getElementById('detailDuedate');
+const detailPriority = document.getElementById('detailPriority');
+const detailAssignee = document.getElementById('detailAssignee');
+let selectedRow = null;
+
 
 function addRow(ticket) {
   const row = document.createElement('tr');
@@ -11,6 +21,13 @@ function addRow(ticket) {
     '<td>' + ticket.kurztext + '</td>' +
     '<td>' + ticket.beschreibung + '</td>' +
     '<td>' + ticket.status + '</td>';
+  row.addEventListener('click', () => {
+    if (selectedRow) selectedRow.classList.remove('selected');
+    row.classList.add('selected');
+    selectedRow = row;
+    showDetails(ticket);
+  });
+
   tableBody.appendChild(row);
 }
 
@@ -27,6 +44,18 @@ function loadTickets() {
 function saveTickets(tickets) {
   localStorage.setItem('tickets', JSON.stringify(tickets));
 }
+
+function showDetails(ticket) {
+  detailNummer.textContent = ticket.ticketnummer;
+  detailKurztext.textContent = ticket.kurztext;
+  detailBeschreibung.textContent = ticket.beschreibung;
+  detailStatus.textContent = ticket.status;
+  detailDuedate.textContent = ticket.duedate;
+  detailPriority.textContent = ticket.priority;
+  detailAssignee.textContent = ticket.assignee;
+  detailPanel.classList.remove('hidden');
+}
+
 
 function refreshTable() {
   tableBody.innerHTML = '';
@@ -50,6 +79,10 @@ form.addEventListener('submit', function (event) {
     kurztext: document.getElementById('kurztext').value,
     beschreibung: document.getElementById('beschreibung').value,
     status: document.getElementById('status').value,
+    duedate: document.getElementById('duedate').value,
+    priority: document.getElementById('priority').value,
+    assignee: document.getElementById('assignee').value,
+
   };
 
   const tickets = loadTickets();
@@ -63,4 +96,3 @@ form.addEventListener('submit', function (event) {
 });
 
 window.addEventListener('DOMContentLoaded', refreshTable);
-

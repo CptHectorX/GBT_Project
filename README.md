@@ -1,6 +1,6 @@
 # Ticket System
 
-This repository holds a single HTML page for simple ticket management. The page displays existing tickets in a table and provides a button that opens a form in a popup to add new ones.
+This repository holds a single HTML page for simple ticket management. The page displays existing tickets in a table and provides a button that opens a form in a popup to add new ones. The popup also lets you set a due date, priority and assignee for each ticket. Click a row to see all details below the table.
 
 ## Opening the page
 
