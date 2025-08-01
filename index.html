@@ -1,53 +1,61 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ticketsystem</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>TicketSystem</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Ticketsystem</h1>
-  <table id="ticketTable">
-    <thead>
-      <tr>
-        <th>Ticketnummer</th>
-        <th>Kurztext</th>
-        <th>Beschreibung</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
+    <h1>Ticketsystem</h1>
+    <table id="ticketTable">
+        <thead>
+            <tr>
+                <th>Ticketnummer</th>
+                <th>Kurztext</th>
+                <th>Beschreibung</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 
-  <button id="openFormBtn">Ticket erstellen</button>
+    <button id="openFormBtn">Ticket erstellen</button>
 
-  <div id="formModal" class="modal hidden">
-    <div class="modal-content">
-      <h2>Neues Ticket</h2>
-      <form id="ticketForm">
-        <div>
-          <label for="ticketnummer">Ticketnummer:</label>
-          <input type="text" id="ticketnummer" required>
+    <div id="formModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Neues Ticket</h2>
+            <form id="ticketForm">
+                <div>
+                    <label for="ticketnummer">Ticketnummer:</label>
+                    <input type="text" id="ticketnummer" required>
+                </div>
+                <div>
+                    <label for="kurztext">Kurztext:</label>
+                    <input type="text" id="kurztext" required>
+                </div>
+                <div>
+                    <label for="beschreibung">Beschreibung:</label>
+                    <textarea id="beschreibung" rows="5" required></textarea>
+                </div>
+                <div>
+                    <label for="status">Status:</label>
+                    <select id="status">
+                        <option value="OPEN">OPEN</option>
+                        <option value="IN PROGRESS">IN PROGRESS</option>
+                        <option value="SOLVED">SOLVED</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="submit">Hinzufügen</button>
+                    <button type="button" id="cancelBtn">Abbrechen</button>
+                </div>
+            </form>
         </div>
-        <div>
-          <label for="kurztext">Kurztext:</label>
-          <input type="text" id="kurztext" required>
-        </div>
-        <div>
-          <label for="beschreibung">Beschreibung:</label>
-          <textarea id="beschreibung" required></textarea>
-        </div>
-        <div>
-          <label for="status">Status:</label>
-          <input type="text" id="status" required>
-        </div>
-        <button type="submit">Hinzufügen</button>
-        <button type="button" id="cancelBtn">Abbrechen</button>
-      </form>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

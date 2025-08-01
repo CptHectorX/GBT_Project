@@ -1,9 +1,10 @@
 body {
-  font-family: "Courier New", monospace;
+  font-family: 'Press Start 2P', "Courier New", monospace;
   background-color: #0d1b2a;
   color: #f8f9fa;
   margin: 0;
   padding: 20px;
+  image-rendering: pixelated;
 }
 
 table {
@@ -23,6 +24,7 @@ th {
 }
 
 button {
+  margin-top: 10px;
   font-family: inherit;
   background-color: #1b263b;
   color: #f8f9fa;
@@ -31,7 +33,17 @@ button {
   cursor: pointer;
 }
 
+input, select, textarea {
+  font-family: inherit;
+  background-color: #0d1b2a;
+  color: #f8f9fa;
+  border: 2px solid #415a77;
+  padding: 4px;
+}
+
 form div {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 8px;
 }
 
@@ -51,6 +63,12 @@ form div {
   background-color: #001b33;
   padding: 20px;
   border: 2px solid #415a77;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
 }
 
 .hidden {
